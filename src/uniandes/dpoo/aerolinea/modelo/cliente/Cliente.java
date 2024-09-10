@@ -7,24 +7,43 @@ import uniandes.dpoo.aerolinea.tiquetes.Tiquete;
 
 public abstract class Cliente {
 	
-	public Cliente() {}
+	private List<Tiquete> tiquetes;
 	
-	public abstract String getTipoCliente();
+	private String identificador;
 	
-	public abstract String getIdentificador();
+	public Cliente(String identificador) {
+		this.tiquetes = new ArrayList<>();
+		this.identificador = identificador;
+	}
+	
+	public String getTipoCliente() {
+		return "General";
+	}
+	
+	public String getIdentificador() {
+		return identificador;
+	}
 	
 	public void agregarTiquete(Tiquete tiquete) {
 		tiquetes.add(tiquete);
 	}
 	
 	public int calcularValorTotalTiquetes() {
-		return 0;
-		//TODO
-		
+		int valorTotal = 0;
+        for (Tiquete tiquete : tiquetes) {
+            valorTotal += tiquete.getTarifa();  
+        }
+        return valorTotal;
 	}
 	
 	public void usarTiquetes() {
-		//TODO
+		for (Tiquete tiquete : tiquetes) {
+            tiquete.marcarComoUsado();  
+            }
+    }
+
+    public List<Tiquete> getTiquetes() {
+        return this.tiquetes;
 	}
 		
 }

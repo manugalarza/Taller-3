@@ -47,11 +47,14 @@ public class Ruta
 	}
 	
 	public int getDuracion() {
-		int horao = getHoras(getHoraLlegada())*60;
-		int horas = getHoras(getHoraSalida())*60;
-		int minutoso = getMinutos(getHoraLlegada()) + horao;
-		int minutoss = getMinutos(getHoraSalida()) + horas;
-		return minutoso + minutoss;
+		int minutosSalida = getHoras(this.horaSalida) * 60 + getMinutos(this.horaSalida);
+        int minutosLlegada = getHoras(this.horaLlegada) * 60 + getMinutos(this.horaLlegada);
+
+        if (minutosLlegada < minutosSalida) {
+            minutosLlegada += 24 * 60; 
+        }
+
+        return minutosLlegada - minutosSalida;
 	}
 	
     /**
@@ -81,8 +84,7 @@ public class Ruta
     }
 
 	public int getDistancia() {
-		// TODO Auto-generated method stub
-		return 0;
+		return Aeropuerto.calcularDistancia(this.origen, this.destino);
 	}
 
 	

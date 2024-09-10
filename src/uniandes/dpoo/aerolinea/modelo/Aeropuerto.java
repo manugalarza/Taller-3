@@ -24,16 +24,21 @@ public class Aeropuerto
     
     private static final int RADIO_TERRESTRE = 6371;
 	
-    private Set<String> codigosUtilizados;
+    
+    private static Set<String> codigosUtilizados = new HashSet<String>();
 
-    public Aeropuerto(String nombre, String codigo,String nombreCiudad, double latitud, double longitud) {
-        this.codigosUtilizados = new HashSet<String>();
+    public Aeropuerto(String nombre, String codigo,String nombreCiudad, double latitud, double longitud) throws AeropuertoDuplicadoException {
+    	if (codigosUtilizados.contains(codigo)) {
+            throw new AeropuertoDuplicadoException("El código de aeropuerto ya está en uso: " + codigo);
+        }
+
         this.nombre = nombre;
         this.codigo = codigo;
         this.nombreCiudad = nombreCiudad;
         this.latitud = latitud;
         this.longitud = longitud;
-        		
+        
+        codigosUtilizados.add(codigo);
     }
     
     private String getNombre() {

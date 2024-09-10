@@ -7,7 +7,6 @@ import org.json.JSONObject;
  */
 public class ClienteCorporativo extends Cliente
 {
-    // TODO completar
     public static final String CORPORATIVO = "Corporativo";
     
     public static final int GRANDE= 1;
@@ -21,6 +20,7 @@ public class ClienteCorporativo extends Cliente
     private int tamanoEmpresa;
     
     public ClienteCorporativo(String nombreEmpresa, int tamano) {
+    	super(nombreEmpresa);
     	this.nombreEmpresa= nombreEmpresa;
     	this.tamanoEmpresa= tamano;
     }
@@ -39,7 +39,7 @@ public class ClienteCorporativo extends Cliente
     
     public String getIdentificador() {
     	return this.nombreEmpresa;
-    	//TODO
+   
     }
 
 

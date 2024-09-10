@@ -23,7 +23,11 @@ public class Tiquete {
         this.usado = false; // Por defecto el tiquete no está usado
     }
 
-    public Cliente getCliente() {
+    public Tiquete(Cliente cliente, Vuelo vuelo2, int calcularTarifa) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Cliente getCliente() {
         return clienteComprador;
     }
 

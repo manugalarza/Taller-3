@@ -7,6 +7,7 @@ public class ClienteNatural extends Cliente {
 	private String nombre;
 	
 	public ClienteNatural(String nombre) {
+		super(nombre);
 		this.nombre = nombre;
 	}
 	
@@ -18,7 +19,6 @@ public class ClienteNatural extends Cliente {
 
 	@Override
 	public String getIdentificador() {
-		// TODO Auto-generated method stub
 		return this.nombre;
 	}
 
